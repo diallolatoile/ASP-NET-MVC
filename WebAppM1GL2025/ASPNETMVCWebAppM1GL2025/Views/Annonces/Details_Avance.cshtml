@@ -1,0 +1,144 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Annonce
+
+@{
+    ViewBag.Title = "Gestion des Annonces";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Gestion des Annonces</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Annonces</li>
+                <li class="breadcrumb-item active">Gestion</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#annonce-details">Détails</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#annonce-edit">Modifier</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#annonce-delete">Supprimer</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <!-- Détails -->
+                        <div class="tab-pane fade show active profile-overview" id="annonce-details">
+                            <h5 class="card-title">Détails de l'Annonce</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Début</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateDebutAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Fin</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateFinAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Description</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Bien Associé</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.BienId)</div>
+                            </div>
+                        </div>
+
+                        <!-- Modifier -->
+                        <div class="tab-pane fade profile-edit pt-3" id="annonce-edit">
+                            <h5 class="card-title">Modifier une Annonce</h5>
+                            @using (Html.BeginForm("Edit", "Annonces", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(model => model.AnnonceId)
+                                <div class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.DateDebutAnnonce, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.DateDebutAnnonce, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DateDebutAnnonce, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.DateFinAnnonce, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.DateFinAnnonce, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DateFinAnnonce, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(model => model.DescriptionAnnonce, new { @class = "form-label" })
+                                        @Html.TextAreaFor(model => model.DescriptionAnnonce, new { @class = "tinymce-editor form-control" }) <!-- TinyMCE -->
+                                        @Html.ValidationMessageFor(model => model.DescriptionAnnonce, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.BienId, "BienId", new { @class = "form-label" })
+                                        @Html.DropDownList("BienId", null, new { @class = "form-select" })
+                                        @Html.ValidationMessageFor(model => model.BienId, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                        <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Supprimer -->
+                        <div class="tab-pane fade profile-delete pt-3" id="annonce-delete">
+                            <h5 class="card-title">Supprimer une Annonce</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Début</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateDebutAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Fin</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateFinAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Description</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Bien Associé</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.BienId)</div>
+                            </div>
+                            <div class="text-center mt-3">
+                                @using (Html.BeginForm("Delete", "Annonces", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(model => model.AnnonceId)
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-secondary ml-2" })
+                                }
+                            </div>
+                        </div>
+
+                    </div><!-- Fin des onglets -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <!--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.tinymce-editor',
+            plugins: 'lists link image preview',
+            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | link image | preview',
+            menubar: false
+        });
+    </script>-->
+}

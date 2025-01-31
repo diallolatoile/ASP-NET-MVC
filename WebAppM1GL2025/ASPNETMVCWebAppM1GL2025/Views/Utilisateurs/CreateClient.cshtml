@@ -1,0 +1,74 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Client
+
+@{
+    ViewBag.Title = "Créer un Client";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulaire de Création de Client</h5>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NomPrenom, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NomPrenom, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.NomPrenom, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Telephone, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adresse, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <!-- Champs spécifiques Client -->
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.CNI, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.CNI, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.CNI, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DateNaissance, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.DateNaissance, new { htmlAttributes = new { @class = "form-control", @type = "date", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.DateNaissance, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Genre, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Créer Client</button>
+                        </div>
+                    }
+
+                    <div class="mt-3">
+                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger", @type = "button" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

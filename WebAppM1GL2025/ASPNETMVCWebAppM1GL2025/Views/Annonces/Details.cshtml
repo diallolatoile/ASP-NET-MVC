@@ -1,0 +1,76 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Annonce
+
+@{
+    ViewBag.Title = "Détails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Détails de l'Annonce</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Annonces</li>
+                <li class="breadcrumb-item active">Détails</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <h2>@Html.DisplayFor(model => model.BienId)</h2>
+                    <h3>@Html.DisplayFor(model => model.DescriptionAnnonce)</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Détails</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Détails de l'Annonce</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Début</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateDebutAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date de Fin</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateFinAnnonce)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Description</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionAnnonce)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Statut</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.StatutAnnonce)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Bien Associé</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.BienId)</div>
+                            </div>
+                            <div class="text-center mt-3">
+                                @Html.ActionLink("Éditer", "Edit", new { id = Model.AnnonceId }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger ml-2" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,78 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Bien
+
+@{
+    ViewBag.Title = "Supprimer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Supprimer un Bien</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Biens</li>
+                <li class="breadcrumb-item active">Supprimer</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <h2>@Html.DisplayFor(model => model.LibelleBien)</h2>
+                    <h3>@Html.DisplayFor(model => model.TypeBien)</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Détails</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Êtes-vous sûr de vouloir supprimer ceci ?</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Description</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionBien)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Prix Journalier</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.PrixJournalier)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Région</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Region)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Pays</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Pays)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Adresse</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Adresse)</div>
+                            </div>
+                            <div class="text-center">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger ml-2" })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

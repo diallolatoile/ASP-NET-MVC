@@ -1,0 +1,79 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Admin
+
+@{
+    ViewBag.Title = "Créer un Admin";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulaire de Création d'Admin</h5>
+
+                    @using (Html.BeginForm("CreateAdmin", "Utilisateurs", FormMethod.Post, new { @class = "row g-3 needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NomPrenom, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NomPrenom, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.NomPrenom, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Telephone, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adresse, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Matricule, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Matricule, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Matricule, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Password, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button type="submit" value="Create" class="btn btn-primary">Créer</button>
+                            <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                        </div>
+
+                    }
+
+                    <div class="mt-3">
+                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger", @type = "button" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

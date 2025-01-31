@@ -1,0 +1,98 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Utilisateur
+@using ASPNETMVCWebAppM1GL2025.Models
+
+@{
+    ViewBag.Title = "Détails de l'Utilisateur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Détails de l'Utilisateur</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Utilisateurs</li>
+                <li class="breadcrumb-item active">Détails</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">Détails de l'Utilisateur</h5>
+
+                    <!-- Affichage des champs communs -->
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Nom et Prénom</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NomPrenom)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Téléphone</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Telephone)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Email</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Email)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Adresse</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Adresse)</div>
+                    </div>
+
+                    <!-- Affichage des champs spécifiques à l'utilisateur en fonction de son type -->
+                    <!-- Champs spécifiques pour Admin -->
+                    @if (Model is Admin)
+                    {
+                        var admin = (Admin)Model;
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Matricule</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => admin.Matricule)</div>
+                        </div>
+                    }
+
+                    <!-- Champs spécifiques pour Client -->
+                    @if (Model is Client)
+                    {
+                        var client = (Client)Model;
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">CNI</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => client.CNI)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Date de Naissance</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => client.DateNaissance)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Genre</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => client.Genre)</div>
+                        </div>
+                    }
+
+                    <!-- Champs spécifiques pour Manager -->
+                    @if (Model is Manager)
+                    {
+                        var manager = (Manager)Model;
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">NINEA</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => manager.NINEA)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">RCCM</div>
+                            <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => manager.RCCM)</div>
+                        </div>
+                    }
+
+                    <div class="text-center mt-3">
+                        @Html.ActionLink("Éditer", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger ml-2" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

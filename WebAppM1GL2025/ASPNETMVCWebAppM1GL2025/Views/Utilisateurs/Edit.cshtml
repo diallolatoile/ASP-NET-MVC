@@ -1,0 +1,125 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Utilisateur
+@using System.Linq
+@using ASPNETMVCWebAppM1GL2025.Models  <!-- Ajoutez cette ligne -->
+
+@{
+    ViewBag.Title = "Éditer Utilisateur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulaire de Création d'Utilisateur</h5>
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "row g-3 needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NomPrenom, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NomPrenom, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.NomPrenom, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Telephone, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adresse, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.UtilisateurType, new { @class = "form-label" })
+                            @Html.DropDownListFor(
+                                          model => model.UtilisateurType,
+                                          Enum.GetValues(typeof(UtilisateurType))
+                                              .Cast<UtilisateurType>()
+                                              .Select(e => new SelectListItem
+                                              {
+                                                  Value = e.ToString(),
+                                                  Text = e.ToString()
+                                              }),
+                                          new { @class = "form-select", @required = "required" }
+                                      )
+                            @Html.ValidationMessageFor(model => model.UtilisateurType, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <!-- Champs spécifiques pour Admin -->
+                        if (Model.UtilisateurType == UtilisateurType.Admin)
+                        {
+                            var adminModel = (Admin)Model;
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => adminModel.Matricule, new { @class = "form-label" })
+                                @Html.EditorFor(model => adminModel.Matricule, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                @Html.ValidationMessageFor(model => adminModel.Matricule, "", new { @class = "invalid-feedback" })
+                            </div>
+                        }
+
+                        <!-- Champs spécifiques pour Client -->
+                        if (Model.UtilisateurType == UtilisateurType.Client)
+                        {
+                            var clientModel = (Client)Model;
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => clientModel.CNI, new { @class = "form-label" })
+                                @Html.EditorFor(model => clientModel.CNI, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                @Html.ValidationMessageFor(model => clientModel.CNI, "", new { @class = "invalid-feedback" })
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => clientModel.DateNaissance, new { @class = "form-label" })
+                                @Html.EditorFor(model => clientModel.DateNaissance, new { htmlAttributes = new { @class = "form-control", @type = "date", @required = "required" } })
+                                @Html.ValidationMessageFor(model => clientModel.DateNaissance, "", new { @class = "invalid-feedback" })
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => clientModel.Genre, new { @class = "form-label" })
+                                @Html.EditorFor(model => clientModel.Genre, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                @Html.ValidationMessageFor(model => clientModel.Genre, "", new { @class = "invalid-feedback" })
+                            </div>
+                        }
+
+                        <!-- Champs spécifiques pour Manager -->
+                        if (Model.UtilisateurType == UtilisateurType.Manager)
+                        {
+                            var managerModel = (Manager)Model;
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => managerModel.NINEA, new { @class = "form-label" })
+                                @Html.EditorFor(model => managerModel.NINEA, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                @Html.ValidationMessageFor(model => managerModel.NINEA, "", new { @class = "invalid-feedback" })
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => managerModel.RCCM, new { @class = "form-label" })
+                                @Html.EditorFor(model => managerModel.RCCM, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                @Html.ValidationMessageFor(model => managerModel.RCCM, "", new { @class = "invalid-feedback" })
+                            </div>
+                        }
+
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Créer</button>
+                            <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                        </div>
+                    }
+
+                    <div class="mt-3">
+                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger", @type = "button" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

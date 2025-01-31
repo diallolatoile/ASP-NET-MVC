@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ASPNETMVCWebAppM1GL2025.Models.Annonce>
+
+@{
+    ViewBag.Title = "Index des Annonces";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Index des Annonces</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Annonces</li>
+                <li class="breadcrumb-item active">Index</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <!-- Titre et bouton de création -->
+                        <h5 class="card-title">Liste des Annonces</h5>
+                        <div class="d-flex justify-content-end">
+                            <p>
+                                @Html.ActionLink("Créer Nouveau", "Create", null, new { @class = "btn btn-primary" })
+                            </p>
+                        </div>
+
+                        <!-- Tableau avec lignes alternées -->
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Bien.LibelleBien)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DateDebutAnnonce)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DateFinAnnonce)</th>
+                                    <th>@Html.DisplayNameFor(model => model.StatutAnnonce)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DescriptionAnnonce)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.Bien.LibelleBien)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DateDebutAnnonce)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DateFinAnnonce)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.StatutAnnonce)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DescriptionAnnonce)</td>
+                                        <td>
+                                            <a href="@Url.Action("Edit", new { id = item.AnnonceId })" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Éditer"><i class="bi bi-pencil"></i></a>
+                                            <a href="@Url.Action("Details", new { id = item.AnnonceId })" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Détails"><i class="bi bi-info-circle"></i></a>
+                                            <a href="@Url.Action("Delete", new { id = item.AnnonceId })" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- Fin du tableau avec lignes alternées -->
+
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</section>

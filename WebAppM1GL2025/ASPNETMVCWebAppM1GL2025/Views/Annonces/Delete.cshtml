@@ -1,0 +1,55 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Annonce
+
+@{
+    ViewBag.Title = "Supprimer une Annonce";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Supprimer une Annonce</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Annonces</li>
+                <li class="breadcrumb-item active">Supprimer</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">Êtes-vous sûr de vouloir supprimer cette annonce ?</h5>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Bien</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Bien.LibelleBien)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Date de Début</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateDebutAnnonce)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Date de Fin</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateFinAnnonce)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Description</div>
+                        <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionAnnonce)</div>
+                    </div>
+                    <div class="text-center mt-3">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                            @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger ml-2" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

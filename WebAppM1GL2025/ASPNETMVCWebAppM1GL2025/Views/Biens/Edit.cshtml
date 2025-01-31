@@ -1,0 +1,209 @@
+﻿@model ASPNETMVCWebAppM1GL2025.Models.Bien
+
+@{
+    ViewBag.Title = "Modifier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Modifier un Bien</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Biens</li>
+                <li class="breadcrumb-item active">Modifier</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+@if (ViewBag.ErrorMessages != null)
+{
+    <div id="errorMessages">
+        <h3>Bien non valide. Erreurs:</h3>
+        <ul>
+            @foreach (var line in ViewBag.ErrorMessages.ToString().Split('\n'))
+            {
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    <li>@line</li>
+                }
+            }
+        </ul>
+    </div>
+}
+
+@if (ViewBag.BienDetails != null)
+{
+    <div id="bienDetails">
+        <h3>Détails du bien soumis:</h3>
+        <pre>@Html.Raw(ViewBag.BienDetails)</pre>
+    </div>
+}
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulaire de Modification</h5>
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "row g-3 needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.BienId)
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.LibelleBien, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.LibelleBien, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un libellé valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.LibelleBien, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DescriptionBien, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.DescriptionBien, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une description.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.DescriptionBien, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PrixJournalier, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.PrixJournalier, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un prix journalier valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.PrixJournalier, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Region, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une région valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Pays, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Pays, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un pays valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.Pays, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Latitude, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une latitude valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Longitude, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une longitude valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NbreChambre, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NbreChambre, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un nombre de chambres valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.NbreChambre, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NbreLit, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NbreLit, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un nombre de lits valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.NbreLit, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NbreSalleBain, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.NbreSalleBain, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un nombre de salles de bain valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.NbreSalleBain, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.TypeBien, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.TypeBien, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir un type de bien valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.TypeBien, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Disponible, new { @class = "form-label" })
+                            <div class="form-check form-switch">
+                                @Html.EditorFor(model => model.Disponible, new { htmlAttributes = new { @class = "form-check-input" } })
+                                <div class="invalid-feedback">Veuillez indiquer si le bien est disponible.</div>
+                                <div class="valid-feedback">C'est bon!</div>
+                                @Html.ValidationMessageFor(model => model.Disponible, "", new { @class = "invalid-feedback" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DateAjout, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.DateAjout, new { htmlAttributes = new { @class = "form-control", @type = "datetime", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une date d'ajout valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.DateAjout, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adresse, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <div class="invalid-feedback">Veuillez fournir une adresse valide.</div>
+                            <div class="valid-feedback">C'est bon!</div>
+                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "invalid-feedback" })
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Enregister</button>
+                            <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                        </div>
+                    }
+
+                    <div class="mt-3">
+                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script type="text/javascript">
+        // Fonction pour masquer les éléments après 1 minute
+        function hideElements() {
+            var errorMessages = document.getElementById("errorMessages");
+            var bienDetails = document.getElementById("bienDetails");
+
+            if (errorMessages) {
+                errorMessages.style.display = 'none';
+            }
+
+            if (bienDetails) {
+                bienDetails.style.display = 'none';
+            }
+        }
+
+        // Définir le minuteur pour 1 minute (60000 millisecondes)
+        setTimeout(hideElements, 60000);
+    </script>
+
+}
+

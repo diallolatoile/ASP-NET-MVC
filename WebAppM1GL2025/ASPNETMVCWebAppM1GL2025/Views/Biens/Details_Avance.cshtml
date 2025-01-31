@@ -1,0 +1,256 @@
+﻿
+
+@model ASPNETMVCWebAppM1GL2025.Models.Bien
+
+@{
+    ViewBag.Title = "Gestion des Biens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Breadcumb {
+    <div class="pagetitle">
+        <h1>Gestion des Biens</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item">Biens</li>
+                <li class="breadcrumb-item active">Gestion</li>
+            </ol>
+        </nav>
+    </div><!-- Fin du titre de page -->
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bien-details">Détails</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bien-edit">Modifier</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bien-delete">Supprimer</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <!-- Détails -->
+                        <div class="tab-pane fade show active profile-overview" id="bien-details">
+                            <h5 class="card-title">Détails du Bien</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Libellé</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.LibelleBien)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Description</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionBien)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Prix Journalier</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.PrixJournalier)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Région</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Region)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Pays</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Pays)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Latitude</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Latitude)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Longitude</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Longitude)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Nombre de Chambres</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreChambre)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Nombre de Lits</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreLit)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Nombre de Salles de Bain</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreSalleBain)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Disponible</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Disponible)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Date d'Ajout</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateAjout)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Adresse</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Adresse)</div>
+                            </div>
+                        </div>
+
+                        <!-- Modifier -->
+                        <div class="tab-pane fade profile-edit pt-3" id="bien-edit">
+                            <h5 class="card-title">Modifier un Bien</h5>
+                            @using (Html.BeginForm("Edit", "Biens", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(model => model.BienId)
+                                <div class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.LibelleBien, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.LibelleBien, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.LibelleBien, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.DescriptionBien, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.DescriptionBien, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DescriptionBien, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.PrixJournalier, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.PrixJournalier, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PrixJournalier, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Region, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Region, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Pays, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.Pays, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Pays, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Latitude, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Longitude, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.NbreChambre, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.NbreChambre, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NbreChambre, "", new { @class = "invalid-feedback" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.NbreLit, new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.NbreLit, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NbreLit, "", new { @class = "invalid-feedback" })
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.NbreSalleBain, new { @class = "form-label" })
+                                            @Html.EditorFor(model => model.NbreSalleBain, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NbreSalleBain, "", new { @class = "invalid-feedback" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.TypeBien, new { @class = "form-label" })
+                                            @Html.EditorFor(model => model.TypeBien, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.TypeBien, "", new { @class = "invalid-feedback" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.Disponible, new { @class = "form-label" })
+                                            <div class="form-check form-switch">
+                                                @Html.EditorFor(model => model.Disponible, new { htmlAttributes = new { @class = "form-check-input" } })
+                                                @Html.ValidationMessageFor(model => model.Disponible, "", new { @class = "invalid-feedback" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.DateAjout, new { @class = "form-label" })
+                                            @Html.EditorFor(model => model.DateAjout, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DateAjout, "", new { @class = "invalid-feedback" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.Adresse, new { @class = "form-label" })
+                                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "invalid-feedback" })
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                            <!-- Supprimer -->
+                            <div class="tab-pane fade profile-delete pt-3" id="bien-delete">
+                                <h5 class="card-title">Supprimer un Bien</h5>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Libellé</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.LibelleBien)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Description</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DescriptionBien)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Prix Journalier</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.PrixJournalier)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Région</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Region)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Pays</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Pays)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Latitude</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Latitude)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Longitude</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Longitude)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Nombre de Chambres</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreChambre)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Nombre de Lits</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreLit)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Nombre de Salles de Bain</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.NbreSalleBain)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Disponible</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Disponible)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Date d'Ajout</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.DateAjout)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Adresse</div>
+                                    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Adresse)</div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    @using (Html.BeginForm("Delete", "Biens", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                        @Html.ActionLink("Retour à la Liste", "Index", null, new { @class = "btn btn-secondary ml-2" })
+                                    }
+                                </div>
+                            </div>
+
+                        </div><!-- Fin des onglets -->
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+

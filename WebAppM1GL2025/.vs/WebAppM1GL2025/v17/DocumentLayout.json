@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|c:\\files\\isi-dakar\\asp.net_m1_g1_s1\\mes_tps\\webappm1gl2025\\aspnetmvcwebappm1gl2025\\controllers\\bienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|solutionrelative:aspnetmvcwebappm1gl2025\\controllers\\bienscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|c:\\files\\isi-dakar\\asp.net_m1_g1_s1\\mes_tps\\webappm1gl2025\\aspnetmvcwebappm1gl2025\\views\\biens\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|solutionrelative:aspnetmvcwebappm1gl2025\\views\\biens\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|c:\\files\\isi-dakar\\asp.net_m1_g1_s1\\mes_tps\\webappm1gl2025\\aspnetmvcwebappm1gl2025\\views\\biens\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|solutionrelative:aspnetmvcwebappm1gl2025\\views\\biens\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|c:\\files\\isi-dakar\\asp.net_m1_g1_s1\\mes_tps\\webappm1gl2025\\aspnetmvcwebappm1gl2025\\views\\biens\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|solutionrelative:aspnetmvcwebappm1gl2025\\views\\biens\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|c:\\files\\isi-dakar\\asp.net_m1_g1_s1\\mes_tps\\webappm1gl2025\\aspnetmvcwebappm1gl2025\\views\\biens\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4EC65BAA-80A2-48C8-979E-5AD0AC30C302}|ASPNETMVCWebAppM1GL2025\\ASPNETMVCWebAppM1GL2025.csproj|solutionrelative:aspnetmvcwebappm1gl2025\\views\\biens\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Delete.cshtml",
+              "ToolTip": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Delete.cshtml",
+              "RelativeToolTip": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Delete.cshtml",
+              "ViewState": "AgIAAC8AAAAAWDMzMzPrvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T10:51:33.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Details.cshtml",
+              "RelativeDocumentMoniker": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Details.cshtml",
+              "ToolTip": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Details.cshtml",
+              "RelativeToolTip": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Details.cshtml",
+              "ViewState": "AgIAABcAAAAAIzMzMzMLwBsAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T10:49:55.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Edit.cshtml",
+              "ToolTip": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Edit.cshtml",
+              "RelativeToolTip": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T10:43:43.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BiensController.cs",
+              "DocumentMoniker": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Controllers\\BiensController.cs",
+              "RelativeDocumentMoniker": "ASPNETMVCWebAppM1GL2025\\Controllers\\BiensController.cs",
+              "ToolTip": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Controllers\\BiensController.cs",
+              "RelativeToolTip": "ASPNETMVCWebAppM1GL2025\\Controllers\\BiensController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAewBIAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T08:23:30.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Create.cshtml",
+              "RelativeDocumentMoniker": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Create.cshtml",
+              "ToolTip": "C:\\Files\\ISI-Dakar\\ASP.Net_M1_G1_S1\\Mes_TPs\\WebAppM1GL2025\\ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Create.cshtml",
+              "RelativeToolTip": "ASPNETMVCWebAppM1GL2025\\Views\\Biens\\Create.cshtml",
+              "ViewState": "AgIAAG4AAAAAamZmZmYUwOUAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T08:31:06.41Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
